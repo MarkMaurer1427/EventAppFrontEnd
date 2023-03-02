@@ -5,6 +5,8 @@ import { UserModule } from './user/user.module';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavComponent } from './nav/nav.component';
+import { AdminModule } from './admin/admin.module';
+import { EventAPIService } from './services/event-api.service';
 
 
 @NgModule({
@@ -15,9 +17,11 @@ import { NavComponent } from './nav/nav.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    UserModule
+    UserModule,
+    AdminModule,
+    
   ],
-  providers: [],
+  providers: [EventAPIService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

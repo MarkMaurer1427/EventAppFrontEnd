@@ -1,0 +1,31 @@
+<div class="container">
+    <p>
+      admin event display works!
+    </p>
+    <table class="table-auto">
+      <thead>
+        <th>Event Name</th>
+        <th>Description</th>
+        <th>Category</th>
+        <th>Location</th>
+        <th>Start Date</th>
+        <th>End Date</th>
+        <th>Registration open</th>
+        <th>Adult Ticket Price</th>
+        <th>Child Ticket Price</th>
+      </thead>
+      <tbody>
+        <tr *ngFor="let event of events" (click)="sendEmployeeToParent(event)">
+          <td>{{event.name}}</td>
+          <td>{{event.description}}</td>
+          <td>{{event.category}}</td>
+          <td>{{event.location}}</td>
+          <td>{{event.startDate}}</td>
+          <td>{{event.endDate}}</td>
+          <td>{{event.allowReg}}</td>
+          <td>{{event.adultTicket}}</td>
+          <td>{{event.childTicket}}</td>
+        </tr>
+      </tbody>
+    </table>
+    </div>
