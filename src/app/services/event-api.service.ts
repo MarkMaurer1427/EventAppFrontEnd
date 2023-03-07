@@ -9,7 +9,7 @@ import { EventObj } from '../EventObj';
 export class EventAPIService {
   
 
-  url:string= "http://localhost:5006/"
+  url:string= "http://localhost:5006/api/"
   constructor(private httpClient: HttpClient) { }
 
   

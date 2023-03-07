@@ -17,7 +17,7 @@ export class AdminEventDisplayComponentComponent implements OnInit {
   ngOnInit() {
   }
 
-  sendEmployeeToParent(event:EventObj){
+  sendEventToParent(event:EventObj){
     this.notify.emit(event);
   }
 
