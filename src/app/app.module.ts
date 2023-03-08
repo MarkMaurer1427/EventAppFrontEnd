@@ -7,12 +7,14 @@ import { AppComponent } from './app.component';
 import { NavComponent } from './nav/nav.component';
 import { AdminModule } from './admin/admin.module';
 import { EventAPIService } from './services/event-api.service';
+import { HomeComponent } from './home/home.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    NavComponent
+    NavComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
