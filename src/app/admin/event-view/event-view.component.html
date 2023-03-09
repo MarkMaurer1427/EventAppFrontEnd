@@ -1,9 +1,10 @@
 <div class="container">
-    <div class = "text-4xl">Event Administration View</div>
+    <div class = "text-white text-4xl bg-cyan-500">Event Administration View</div>
     <app-admin-event-display-component 
         [events]="events" 
         (notify)="recieveMsgFromChild($event)"
         ></app-admin-event-display-component>
 </div>
-    <button (click)="createEvent()">Create</button>
+    <!-- <button class="bg-cyan-500 hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-700 rounded" (click)="createEvent()">Create New Event</button> -->
+    <app-create-event-modal></app-create-event-modal>
 

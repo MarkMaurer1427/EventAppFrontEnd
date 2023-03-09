@@ -3,6 +3,7 @@ import { concatMap, zip } from 'rxjs';
 import { EventAPIService } from 'src/app/services/event-api.service';
 import { EventObj } from 'src/app/EventObj';
 
+
 @Component({
   selector: 'app-event-view',
   templateUrl: './event-view.component.html',
