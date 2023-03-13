@@ -8,6 +8,7 @@ import { NavComponent } from './nav/nav.component';
 import { AdminModule } from './admin/admin.module';
 import { EventAPIService } from './services/event-api.service';
 import { HomeComponent } from './home/home.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import { HomeComponent } from './home/home.component';
     AppRoutingModule,
     UserModule,
     AdminModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
     
   ],
   providers: [EventAPIService],

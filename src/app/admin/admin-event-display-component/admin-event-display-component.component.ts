@@ -8,9 +8,9 @@ import { EventObj } from 'src/app/EventObj';
 })
 export class AdminEventDisplayComponentComponent implements OnInit {
 
-  @Input()
-  events: EventObj[] = [];
-  @Output() notify: EventEmitter<EventObj> = new EventEmitter();
+  @Input()  events: EventObj[] = [];
+  @Output() notifyDisplay: EventEmitter<EventObj> = new EventEmitter();
+
 
   constructor() { }
 
@@ -18,7 +18,9 @@ export class AdminEventDisplayComponentComponent implements OnInit {
   }
 
   sendEventToParent(event:EventObj){
-    this.notify.emit(event);
+    this.notifyDisplay.emit(event);
   }
 
+
+  
 }

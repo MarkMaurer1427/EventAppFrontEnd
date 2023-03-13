@@ -50,8 +50,8 @@
                 <td>{{event.adultTicket}}</td>
                 <td>{{event.childTicket}}</td>
                 <td>
-                  <app-edit-event-modal></app-edit-event-modal>
-                  <app-delete-event-modal></app-delete-event-modal>
+                  <app-edit-event-modal [eventChange]="event" (notifyEdit)="sendEventToParent(event)"></app-edit-event-modal>
+                  <app-delete-event-modal [eventDel]="event"></app-delete-event-modal>
                 </td>
               </tr>
             </tbody>

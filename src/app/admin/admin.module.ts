@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { EventViewComponent } from './event-view/event-view.component';
 import { AdminEventDisplayComponentComponent } from './admin-event-display-component/admin-event-display-component.component';
 import { ModalModule } from '../modal/modal.module';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -13,7 +14,8 @@ import { ModalModule } from '../modal/modal.module';
   ],
   imports: [
     CommonModule,
-    ModalModule
+    ModalModule,
+    ReactiveFormsModule
   ],
   exports: [
     EventViewComponent,

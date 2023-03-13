@@ -5,6 +5,7 @@ import { EditEventModalComponent } from './edit-event-modal/edit-event-modal.com
 import { DeleteEventModalComponent } from './delete-event-modal/delete-event-modal.component';
 import { EventRegModalComponent } from './event-reg-modal/event-reg-modal.component';
 import { LoginModalComponent } from './login-modal/login-modal.component';
+import { ReactiveFormsModule} from '@angular/forms';
 
 
 
@@ -17,7 +18,8 @@ import { LoginModalComponent } from './login-modal/login-modal.component';
     LoginModalComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    ReactiveFormsModule
   ],
   exports: [
     CreateEventModalComponent,

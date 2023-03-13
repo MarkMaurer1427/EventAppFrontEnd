@@ -12,11 +12,6 @@ export class EventAPIService {
   url:string= "http://localhost:5006/api/"
   constructor(private httpClient: HttpClient) { }
 
-  
-  getDepartmentData(){
-    return this.httpClient.get(this.url + 'event');
-  }
-
   //READ ALL
   getEvents():Observable<any>{
     //http://localhost:5006/Event
@@ -25,12 +20,12 @@ export class EventAPIService {
 
   //READ ONE
   getEvent(id: number):Observable<any>{
-    return this.httpClient.get(this.url + 'event' + id);
+    return this.httpClient.get(this.url + 'event/' + id);
   }
 
   //DELETE ONE
   deleteEvent(id: number) {
-    return this.httpClient.delete(this.url + 'event' + id)
+    return this.httpClient.delete(this.url + 'event/' + id)
   }
 
   //CREATE ONE
@@ -40,8 +35,8 @@ export class EventAPIService {
 
 
   //CREATE ONE
-  updateEvent(event: { [x: string]: string; }){
-    return this.httpClient.put(this.url + 'event' + event['id'],Event)
+  updateEvent(event: EventObj){
+    return this.httpClient.put(this.url + 'event/' + event['id'],event)
   }
 
 

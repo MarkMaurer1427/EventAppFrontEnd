@@ -21,13 +21,15 @@
           <p class="my-4 text-slate-500 text-lg leading-relaxed">
             Delete Event Modal
           </p>
+
+          <p>Do you wish to delete event {{eventDel.name}}?</p>
         </div>
         <!--footer-->
         <div class="flex items-center justify-end p-6 border-t border-solid border-slate-200 rounded-b">
           <button class="text-red-500 background-transparent font-bold uppercase px-6 py-2 text-sm outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150" type="button" (click)="toggleModal()">
             Close
           </button>
-          <button class="bg-red-500 hover:bg-blue-700 text-white font-bold py-2 px-4 border border-red-700 rounded" type="button" (click)="toggleModal()">
+          <button class="bg-red-500 hover:bg-blue-700 text-white font-bold py-2 px-4 border border-red-700 rounded" type="button" (click)="confirmDel()">
             Confirm Delete
           </button>
         </div>
