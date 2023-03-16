@@ -6,6 +6,7 @@ import { UserViewComponent } from './user-view/user-view.component';
 import { UserEventDisplayComponent } from './user-event-display/user-event-display.component';
 import { ModalModule } from '../modal/modal.module';
 import { UserEventDetailsComponent } from './user-event-details/user-event-details.component';
+import { UserRegConfirmationComponentComponent } from './user-reg-confirmation-component/user-reg-confirmation-component.component';
 
 
 
@@ -15,7 +16,8 @@ import { UserEventDetailsComponent } from './user-event-details/user-event-detai
     AuthModalComponent,
     UserViewComponent,
     UserEventDisplayComponent,
-    UserEventDetailsComponent
+    UserEventDetailsComponent,
+    UserRegConfirmationComponentComponent
   ],
   imports: [
     CommonModule,

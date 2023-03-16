@@ -32,7 +32,7 @@
          </div>  
 
          <div class="block max-w-sm rounded-lg text-cyan-500 text-2xl py-2 px-4 border border-cyan-500 rounded text-center align-bottom" >
-            Reg Button 
+            <app-event-reg-modal *ngIf = "event.allowReg" [event] = "event"></app-event-reg-modal>
             <button class="bg-cyan-500 hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-700 rounded" type="button" (click)="goBack()">
                 Back to Events
               </button>
@@ -40,7 +40,7 @@
       </div>
         <!-- Third Column -->
       <div class="column-3 w-full md:w-5/12 h-full border-2 border-dashed md:mx-2 my-2 rounded-md">
-            <img src="https://github.com/MarkMaurer1427/EventAppFrontEnd/blob/main/src/app/shared/images/{{event.imgSrc}}">
+            <img src={{getImgSrc(event)}}>
       </div>
     </div>
   </div>

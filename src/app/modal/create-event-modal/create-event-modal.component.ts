@@ -44,11 +44,11 @@ export class CreateEventModalComponent implements OnInit
   });
   }
 
-  onSubmit(eventForm: FormGroup)
+  onSubmit()
   {
     console.log("submit button clicked");
-    console.log(eventForm.value)
-    this.eventService.createEvent(eventForm.value).subscribe(
+    console.log(this.eventForm.value)
+    this.eventService.createEvent(this.eventForm.value).subscribe(
       (data) =>{
         this.events = data;
         console.log(this.events);

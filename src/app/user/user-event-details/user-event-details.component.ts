@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, ParamMap, Router } from '@angular/router';
+import { EventObj } from 'src/app/EventObj';
 import { EventAPIService } from 'src/app/services/event-api.service';
 
 @Component({
@@ -11,7 +12,7 @@ export class UserEventDetailsComponent implements OnInit{
 
   constructor(private route: ActivatedRoute, private router: Router, private service: EventAPIService){}
   eventId: any;
-  event: any;
+  event!: EventObj;
   errorMsg: any;
 
   ngOnInit(){
@@ -36,5 +37,10 @@ export class UserEventDetailsComponent implements OnInit{
     this.router.navigate(['user']);
   }
 
+  getImgSrc(event: any){
+    let imgTemplate = "images/";
+    let imgURL = imgTemplate.concat(event.imageSrc,".jpg")
+    return imgURL;
+  }
 
 }
