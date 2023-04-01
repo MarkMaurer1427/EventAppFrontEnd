@@ -1,1 +1,27 @@
-<p>user-reg-confirmation-component works!</p>
+<div class="bg-cyan-500 text-white text-3xl font-semibold">
+    Confirm Registration
+</div>
+
+<div class="block max-w-sm rounded-lg text-cyan-500 text-2xl py-2 px-4 border border-cyan-500 rounded text-center" >
+    {{regData.First}} {{regData.Last}}
+ </div>  
+
+ <div class="block max-w-sm rounded-lg text-cyan-500 text-2xl py-2 px-4 border border-cyan-500 rounded text-center" >
+    {{regData.email}} 
+    {{regData.phone}}
+    {{regData.address}}
+ </div> 
+
+ <div class="block max-w-sm rounded-lg text-cyan-500 text-2xl py-2 px-4 border border-cyan-500 rounded text-center" >
+    Adult Ticket Total:
+    {{regData.numberAdults}} * {{regEvent.adultTicket}} = {{getTotalAdult()}}
+ </div> 
+
+ <div class="block max-w-sm rounded-lg text-cyan-500 text-2xl py-2 px-4 border border-cyan-500 rounded text-center" >
+    Child Ticket Total:
+    {{regData.numberChild}} * {{regEvent.childTicket}} = {{getTotalChild()}}
+ </div> 
+
+ <div class="block max-w-sm rounded-lg text-cyan-500 text-2xl py-2 px-4 border border-cyan-500 rounded text-center" >
+    Total Cost: {{getTotal()}}
+ </div> 

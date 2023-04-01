@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { EventObj } from 'src/app/EventObj';
+import { EventObj } from 'src/app/models/EventObj';
 import { EventAPIService } from 'src/app/services/event-api.service';
 
 @Component({

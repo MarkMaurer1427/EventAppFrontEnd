@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { EventObj } from 'src/app/EventObj';
+import { EventObj } from 'src/app/models/EventObj';
 
 @Component({
   selector: 'app-event-details-modal',

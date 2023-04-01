@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { EventObj } from 'src/app/EventObj';
+import { EventObj } from 'src/app/models/EventObj';
 import { EventAPIService } from 'src/app/services/event-api.service';
 
 @Component({

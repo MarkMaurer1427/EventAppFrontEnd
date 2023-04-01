@@ -8,7 +8,7 @@
         <!--header-->
         <div class="flex items-start justify-between p-5 border-b border-solid border-slate-200 rounded-t">
           <h3 class="text-3xl font-semibold">
-            Modal Title
+            Edit Event Modal
           </h3>
           <button class="p-1 ml-auto bg-transparent border-0 text-black opacity-5 float-right text-3xl leading-none font-semibold outline-none focus:outline-none" (click)="toggleModal()">
             <span class="bg-transparent text-black opacity-5 h-6 w-6 text-2xl block outline-none focus:outline-none">
@@ -19,60 +19,106 @@
         <!--body-->
         <div class="relative p-6 flex-auto">
           <p class="my-4 text-slate-500 text-lg leading-relaxed">
-            Edit Event Modal
+            Edit event details.
           </p>
 
           <div *ngIf = "eventForm">
-            <form [formGroup] = "eventForm" (ngSubmit)="onSubmit(eventForm)">
-                <div>
-                  <label>Event Name</label>
-                  <input type = "text" formControlName = "name" class = "bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-cyan-500">
+            <form [formGroup] = "eventForm" (ngSubmit)="onSubmit()">
+              <div>
+                <label>Event Name</label>
+                <input type = "text" formControlName = "name" class = "bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-cyan-500"
+                [class.is-invalid] = "name!.invalid && name!.touched">
+                <div *ngIf = "name!.errors && name!.touched">
+                    <div class = "bg-red-500 text-white font-bold py-2 px-4 border-red-700 rounded" *ngIf = "name!.errors?.['required']">"Name" is a required input.</div>
+                    <div class = "bg-red-500 text-white font-bold py-2 px-4 border-red-700 rounded" *ngIf = "name!.errors?.['minlength']">"Name" must be at least 5 characters.</div>
                 </div>
+              </div>
 
-                <div>
-                  <label>Event Description</label>
-                  <input type = "text" formControlName = "description" class = "bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-cyan-500">
+              <div>
+                <label>Event Description</label>
+                <input type = "text" formControlName = "description" class = "bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-cyan-500" 
+                [class.is-invalid] = "description!.invalid && description!.touched">
+                <div *ngIf = "description!.errors && description!.touched">
+                    <div class = "bg-red-500 text-white font-bold py-2 px-4 border-red-700 rounded" *ngIf = "description!.errors?.['required']">"Description" is a required input.</div>
+                    <div class = "bg-red-500 text-white font-bold py-2 px-4 border-red-700 rounded" *ngIf = "description!.errors?.['minlength']">"Description" must be at least 5 characters.</div>
                 </div>
+              </div>
 
-                <div>
-                  <label>Event Category</label>
-                  <input type = "text" formControlName = "category"  class = "bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-cyan-500">
+              <div>
+                <label>Event Category</label>
+                <input type = "text" formControlName = "category"  class = "bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-cyan-500"                  
+                [class.is-invalid] = "category!.invalid && category!.touched">
+                <div *ngIf = "category!.errors && category!.touched">
+                    <div class = "bg-red-500 text-white font-bold py-2 px-4 border-red-700 rounded" *ngIf = "category!.errors?.['required']">"Category" is a required input.</div>
+                    <div class = "bg-red-500 text-white font-bold py-2 px-4 border-red-700 rounded" *ngIf = "category!.errors?.['minlength']">"Category" must be at least 5 characters.</div>
                 </div>
+              </div>
 
-                <div>
-                  <label>Start Date</label>
-                  <input type = "date" formControlName = "startDate">
+              <div>
+                <label>Start Date</label>
+                <input type = "date" formControlName = "startDate"
+                [class.is-invalid] = "startDate!.invalid && startDate!.touched">
+                <div *ngIf = "startDate!.errors && startDate!.touched">
+                    <div class = "bg-red-500 text-white font-bold py-2 px-4 border-red-700 rounded" *ngIf = "startDate!.errors?.['required']">"Start Date" is a required input.</div>
                 </div>
+              </div>
 
-                <div>
-                  <label>End Date</label>
-                  <input type = "date" formControlName = "endDate">
+              <div>
+                <label>End Date</label>
+                <input type = "date" formControlName = "endDate"
+                [class.is-invalid] = "endDate!.invalid && endDate!.touched">
+                <div *ngIf = "endDate!.errors && endDate!.touched">
+                    <div class = "bg-red-500 text-white font-bold py-2 px-4 border-red-700 rounded" *ngIf = "endDate!.errors?.['required']">"End Date" is a required input.</div>
                 </div>
+              </div>
 
-                <div>
-                  <label>Location</label>
-                  <input type = "text" formControlName = "location" class = "bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-cyan-500">
+              <div>
+                <label>Location</label>
+                <input type = "text" formControlName = "location" class = "bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-cyan-500"
+                [class.is-invalid] = "location!.invalid && location!.touched">
+                <div *ngIf = "location!.errors && location!.touched">
+                    <div class = "bg-red-500 text-white font-bold py-2 px-4 border-red-700 rounded" *ngIf = "location!.errors?.['required']">"Location" is a required input.</div>
+                    <div class = "bg-red-500 text-white font-bold py-2 px-4 border-red-700 rounded" *ngIf = "location!.errors?.['minlength']">"Location" must be at least 5 characters.</div>
                 </div>
+              </div>
 
-                <div>
-                  <label>Registration Open</label>
-                  <input type = "checkbox" formControlName = "allowReg">
+              <div>
+                <label>Registration Open</label>
+                <input type = "checkbox" formControlName = "allowReg"
+                [class.is-invalid] = "allowReg!.invalid && allowReg!.touched">
+                <div *ngIf = "allowReg!.errors && allowReg!.touched">
+                    <div class = "bg-red-500 text-white font-bold py-2 px-4 border-red-700 rounded" *ngIf = "allowReg!.errors?.['required']">"Registration Open" is a required input.</div>
                 </div>
+              </div>
 
-                <div>
-                  <label>Image String</label>
-                  <input type = "text" formControlName = "imageSrc" class = "bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-cyan-500">
+              <div>
+                <label>Image String</label>
+                <input type = "text" formControlName = "imageSrc" class = "bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-cyan-500"
+                [class.is-invalid] = "imageSrc!.invalid && imageSrc!.touched">
+                <div *ngIf = "imageSrc!.errors && imageSrc!.touched">
+                    <div class = "bg-red-500 text-white font-bold py-2 px-4 border-red-700 rounded" *ngIf = "imageSrc!.errors?.['required']">"Image String" is a required input.</div>
                 </div>
+              </div>
 
-                <div>
-                  <label>Adult Ticket Price</label>
-                  <input type = "number" formControlName = "adultTicket" class = "bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-cyan-500">
+              <div>
+                <label>Adult Ticket Price</label>
+                <input type = "number" formControlName = "adultTicket" class = "bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-cyan-500"
+                [class.is-invalid] = "adultTicket!.invalid && adultTicket!.touched">
+                <div *ngIf = "adultTicket!.errors && adultTicket!.touched">
+                    <div class = "bg-red-500 text-white font-bold py-2 px-4 border-red-700 rounded" *ngIf = "adultTicket!.errors?.['required']">"Adult Ticket Price" is a required input.</div>
+                    <div class = "bg-red-500 text-white font-bold py-2 px-4 border-red-700 rounded" *ngIf = "adultTicket!.errors?.['pattern']">"Adult Ticket Price" must be a number.</div>
                 </div>
+              </div>
 
-                <div>
-                  <label>Child Ticket Price</label>
-                  <input type = "number" formControlName = "childTicket" class = "bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-cyan-500">
+              <div>
+                <label>Child Ticket Price</label>
+                <input type = "number" formControlName = "childTicket" class = "bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-cyan-500"
+                [class.is-invalid] = "childTicket!.invalid && childTicket!.touched">
+                <div *ngIf = "childTicket!.errors && childTicket!.touched">
+                    <div class = "bg-red-500 text-white font-bold py-2 px-4 border-red-700 rounded" *ngIf = "childTicket!.errors?.['required']">"Child Ticket Price" is a required input.</div>
+                    <div class = "bg-red-500 text-white font-bold py-2 px-4 border-red-700 rounded" *ngIf = "childTicket!.errors?.['pattern']">"Child Ticket Price" must be a number.</div>
                 </div>
+              </div>
                 <button class="bg-cyan-500 hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-700 rounded" type="submit">
                   Save Changes
                 </button>

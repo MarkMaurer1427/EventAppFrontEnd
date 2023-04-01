@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { concatMap, zip } from 'rxjs';
 import { EventAPIService } from 'src/app/services/event-api.service';
-import { EventObj } from 'src/app/EventObj';
+import { EventObj } from 'src/app/models/EventObj';
 import { Router } from '@angular/router';
 
 
