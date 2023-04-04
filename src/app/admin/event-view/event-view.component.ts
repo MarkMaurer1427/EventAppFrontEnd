@@ -13,7 +13,7 @@ import { Router } from '@angular/router';
 export class EventViewComponent {
 
   events: EventObj[]=[];
-  department:any;
+  
   
   constructor(private dataService: EventAPIService) { }
 

@@ -11,34 +11,34 @@ import { EventRegistrationService } from 'src/app/services/event-registration-se
 })
 export class UserRegConfirmationComponentComponent implements OnInit {
 
-  regData: any
-  regEvent!: EventObj
 
-  constructor(private regService: EventRegistrationService){
+  constructor(public regService: EventRegistrationService){
     
   }
   ngOnInit(): void {
     console.log("Getting registration data");
-    this.regData = this.regService.regData;
-    console.log(this.regData);
-    this.regEvent = this.regData.eventReg;
-    console.log(this.regEvent);
-    this.regService.regData = undefined;
-    this.regService.eventReg = undefined;
+    console.log(this.regService.regData);
+    console.log(this.regService.eventReg);
   }
 
   getTotalAdult()
-  {
-    return this.regData.numberAdults * this.regEvent.adultTicket;
+  { if (this.regService.regData == undefined) return null;
+    if (this.regService.eventReg == undefined) return null;
+    return this.regService.regData.numberAdults * this.regService.eventReg.adultTicket;
   }
 
   getTotalChild()
-  {
-    return this.regData.numberChild * this.regEvent.childTicket;
+  {if (this.regService.regData == undefined) return null;
+    if (this.regService.eventReg == undefined) return null;
+    return this.regService.regData.numberAdults * this.regService.eventReg.childTicket;
   }
 
   getTotal()
   {
-    return this.getTotalAdult() + this.getTotalChild();
+    let adult = this.getTotalAdult()
+    let child = this.getTotalChild();
+
+    if (adult == null || child == null) return null;
+    return adult + child;
   }
 }

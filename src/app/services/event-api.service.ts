@@ -34,7 +34,7 @@ export class EventAPIService {
   }
 
 
-  //CREATE ONE
+  //UPDATE ONE
   updateEvent(event: EventObj){
     return this.httpClient.put(this.url + 'event/' + event['id'],event)
   }
