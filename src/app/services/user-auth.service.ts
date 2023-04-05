@@ -36,4 +36,10 @@ export class UserAuthSevice {
     
   }
 
+  isUserAdmin() {
+    return (this.user?.userRole == 'admin');
+  }
+  
+
 }
+
