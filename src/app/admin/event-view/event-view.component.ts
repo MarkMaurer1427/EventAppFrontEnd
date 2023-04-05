@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { concatMap, zip } from 'rxjs';
 import { EventAPIService } from 'src/app/services/event-api.service';
-import { EventObj } from 'src/app/EventObj';
+import { EventObj } from 'src/app/models/EventObj';
 import { Router } from '@angular/router';
 
 
@@ -13,10 +13,9 @@ import { Router } from '@angular/router';
 export class EventViewComponent {
 
   events: EventObj[]=[];
-  department:any;
-  fullname: string='';
   
-  constructor(private dataService: EventAPIService, private router: Router) { }
+  
+  constructor(private dataService: EventAPIService) { }
 
   ngOnInit() {
     this.dataService.getEvents().subscribe(
@@ -25,9 +24,6 @@ export class EventViewComponent {
       () => console.log('Complete')  
     )
     
-
-    let firstObs = this.dataService.getEvents();
-
   }
 
   getUpdateFromModal($event: any)

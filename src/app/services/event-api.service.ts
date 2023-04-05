@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient} from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { EventObj } from '../EventObj';
+import { EventObj } from '../models/EventObj';
 
 @Injectable({
   providedIn: 'root'
@@ -34,7 +34,7 @@ export class EventAPIService {
   }
 
 
-  //CREATE ONE
+  //UPDATE ONE
   updateEvent(event: EventObj){
     return this.httpClient.put(this.url + 'event/' + event['id'],event)
   }

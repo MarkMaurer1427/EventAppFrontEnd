@@ -1,0 +1,29 @@
+<div *ngIf = "regService.regData && regService.eventReg">
+   <div class="bg-cyan-500 text-white text-3xl font-semibold" >
+      Confirm Registration
+   </div>
+
+   <div class="block max-w-sm rounded-lg text-cyan-500 text-2xl py-2 px-4 border border-cyan-500 rounded text-center" >
+      {{regService.regData.firstName}} {{regService.regData.lastName}}
+   </div>  
+
+   <div class="block max-w-sm rounded-lg text-cyan-500 text-2xl py-2 px-4 border border-cyan-500 rounded text-center" >
+      {{regService.regData.email}} 
+      {{regService.regData.phone}}
+      {{regService.regData.address}}
+   </div> 
+
+   <div class="block max-w-sm rounded-lg text-cyan-500 text-2xl py-2 px-4 border border-cyan-500 rounded text-center" >
+      Adult Ticket Total:
+      {{regService.regData.numberAdults}} * {{regService.eventReg.adultTicket}} = {{getTotalAdult()}}
+   </div> 
+
+   <div class="block max-w-sm rounded-lg text-cyan-500 text-2xl py-2 px-4 border border-cyan-500 rounded text-center" >
+      Child Ticket Total:
+      {{regService.regData.numberChild}} * {{regService.eventReg.childTicket}} = {{getTotalChild()}}
+   </div> 
+
+   <div class="block max-w-sm rounded-lg text-cyan-500 text-2xl py-2 px-4 border border-cyan-500 rounded text-center" >
+      Total Cost: {{getTotal()}}
+   </div> 
+</div>

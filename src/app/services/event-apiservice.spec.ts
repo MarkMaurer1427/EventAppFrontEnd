@@ -2,7 +2,7 @@ import { TestBed } from '@angular/core/testing';
 
 import { EventAPIService } from './event-api.service';
 
-describe('EventAPIServiceService', () => {
+describe('EventAPIService', () => {
   let service: EventAPIService;
 
   beforeEach(() => {

@@ -1,1 +1,115 @@
-<p>event-reg-modal works!</p>
+<button class="bg-cyan-500 hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-700 rounded" type="button" (click)="toggleModal()">
+    Registration
+  </button>
+
+<div *ngIf="showModal" class="overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none justify-center items-center flex">
+    <div class="relative w-auto my-6 mx-auto max-w-6xl">
+      <!--content-->
+      <div class="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none">
+        <!--header-->
+        <div class="flex items-start justify-between p-5 border-b border-solid border-slate-200 rounded-t">
+          <h3 class="text-3xl font-semibold">
+            Event Registration
+          </h3>
+          <button class="p-1 ml-auto bg-transparent border-0 text-black opacity-5 float-right text-3xl leading-none font-semibold outline-none focus:outline-none" (click)="toggleModal()">
+            <span class="bg-transparent text-black opacity-5 h-6 w-6 text-2xl block outline-none focus:outline-none">
+              ×
+            </span>
+          </button>
+        </div>
+        <!--body-->
+        <div class="relative p-6 flex-auto">
+          <p class="text-white text-4xl bg-cyan-500">
+            {{event.name}}
+          </p>
+
+          <div *ngIf = "regForm">
+            <form [formGroup] = "regForm" (ngSubmit)="onSubmit()">
+                <div>
+                  <label>First Name</label>
+                  <input type = "text" formControlName = "firstName" class = "bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-cyan-500"
+                  [class.is-invalid] = "firstName!.invalid && firstName!.touched">
+                  <div *ngIf = "firstName!.errors && firstName!.touched">
+                      <div class = "bg-red-500 text-white font-bold py-2 px-4 border-red-700 rounded" *ngIf = "firstName!.errors?.['required']">"First Name" is a required input.</div>
+                      <div class = "bg-red-500 text-white font-bold py-2 px-4 border-red-700 rounded" *ngIf = "firstName!.errors?.['minlength']">"First Name" must be at least 5 characters.</div>
+                  </div>
+                </div>
+
+                <div>
+                  <label>Last Name</label>
+                  <input type = "text" formControlName = "lastName" class = "bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-cyan-500"
+                  [class.is-invalid] = "lastName!.invalid && lastName!.touched">
+                  <div *ngIf = "lastName!.errors && lastName!.touched">
+                      <div class = "bg-red-500 text-white font-bold py-2 px-4 border-red-700 rounded" *ngIf = "lastName!.errors?.['required']">"Last Name" is a required input.</div>
+                      <div class = "bg-red-500 text-white font-bold py-2 px-4 border-red-700 rounded" *ngIf = "lastName!.errors?.['minlength']">"Last Name" must be at least 5 characters.</div>
+                  </div>
+                </div>
+
+                <div>
+                  <label>Email Address</label>
+                  <input type = "text" formControlName = "email"  class = "bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-cyan-500"
+                  [class.is-invalid] = "email!.invalid && email!.touched">
+                  <div *ngIf = "email!.errors && email!.touched">
+                      <div class = "bg-red-500 text-white font-bold py-2 px-4 border-red-700 rounded" *ngIf = "email!.errors?.['required']">"Email Address" is a required input.</div>
+                      <div class = "bg-red-500 text-white font-bold py-2 px-4 border-red-700 rounded" *ngIf = "email!.errors?.['email']">"Email Address" must be a valid email address.</div>
+                  </div>
+                </div>
+
+                <div>
+                  <label>Phone Number</label>
+                  <input type = "tel" formControlName = "phone" class = "bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-cyan-500"
+                  [class.is-invalid] = "phone!.invalid && phone!.touched">
+                  <div *ngIf = "phone!.errors && phone!.touched">
+                      <div class = "bg-red-500 text-white font-bold py-2 px-4 border-red-700 rounded" *ngIf = "phone!.errors?.['required']">"Phone Number" is a required input.</div>
+                      <div class = "bg-red-500 text-white font-bold py-2 px-4 border-red-700 rounded" *ngIf = "phone!.errors?.['pattern']">"Phone Number" must be a valid 10 digit phone number.</div>
+                  </div>
+                </div>
+
+                <div>
+                  <label>Address</label>
+                  <input type = "text" formControlName = "address" class = "bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-cyan-500"
+                  [class.is-invalid] = "address!.invalid && address!.touched">
+                  <div *ngIf = "address!.errors && address!.touched">
+                      <div class = "bg-red-500 text-white font-bold py-2 px-4 border-red-700 rounded" *ngIf = "address!.errors?.['required']">"Address" is a required input.</div>
+                      <div class = "bg-red-500 text-white font-bold py-2 px-4 border-red-700 rounded" *ngIf = "address!.errors?.['minlength']">"Address" must be at least 5 characters.</div>
+                  </div>
+                </div>
+
+                <div>
+                  <label>Number of Adult Tickets</label>
+                  <input type = "number" formControlName = "numberAdults" class = "bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-cyan-500"
+                  [class.is-invalid] = "numberAdults!.invalid && numberAdults!.touched">
+                  <div *ngIf = "numberAdults!.errors && numberAdults!.touched">
+                      <div class = "bg-red-500 text-white font-bold py-2 px-4 border-red-700 rounded" *ngIf = "numberAdults!.errors?.['required']">"Number of Adult Tickets" is a required input.</div>
+                      <div class = "bg-red-500 text-white font-bold py-2 px-4 border-red-700 rounded" *ngIf = "numberAdults!.errors?.['pattern']">"Number of Adult Tickets" must be a number.</div>
+                  </div>
+                </div>
+
+                <div>
+                  <label>Number of Child Tickets</label>
+                  <input type = "number" formControlName = "numberChild" class = "bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-cyan-500"
+                  [class.is-invalid] = "numberChild!.invalid && numberChild!.touched">
+                  <div *ngIf = "numberChild!.errors && numberChild!.touched">
+                      <div class = "bg-red-500 text-white font-bold py-2 px-4 border-red-700 rounded" *ngIf = "numberChild!.errors?.['required']">"Number of Child Tickets" is a required input.</div>
+                      <div class = "bg-red-500 text-white font-bold py-2 px-4 border-red-700 rounded" *ngIf = "numberChild!.errors?.['pattern']">"Number of Child Tickets" must be a number.</div>
+                  </div>
+                </div>
+
+                <button class="bg-cyan-500 hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-700 rounded" type="submit">
+                  Save Changes
+                </button>
+            </form>
+        </div>
+
+        </div>
+        
+        <!--footer-->
+        <div class="flex items-center justify-end p-6 border-t border-solid border-slate-200 rounded-b">
+          <button class="text-red-500 background-transparent font-bold uppercase px-6 py-2 text-sm outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150" type="button" (click)="toggleModal()">
+            Close
+          </button>
+        </div>
+      </div>
+    </div>
+</div>
+<div *ngIf="showModal" class="opacity-25 fixed inset-0 z-40 bg-black"></div>

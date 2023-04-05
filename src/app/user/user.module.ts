@@ -4,6 +4,10 @@ import { AuthModalComponent } from './auth-modal/auth-modal.component';
 import { SharedModule } from '../shared/shared.module';
 import { UserViewComponent } from './user-view/user-view.component';
 import { UserEventDisplayComponent } from './user-event-display/user-event-display.component';
+import { ModalModule } from '../modal/modal.module';
+import { UserEventDetailsComponent } from './user-event-details/user-event-details.component';
+import { UserRegConfirmationComponentComponent } from './user-reg-confirmation-component/user-reg-confirmation-component.component';
+
 
 
 
@@ -11,11 +15,14 @@ import { UserEventDisplayComponent } from './user-event-display/user-event-displ
   declarations: [
     AuthModalComponent,
     UserViewComponent,
-    UserEventDisplayComponent
+    UserEventDisplayComponent,
+    UserEventDetailsComponent,
+    UserRegConfirmationComponentComponent
   ],
   imports: [
     CommonModule,
-    SharedModule
+    SharedModule,
+    ModalModule
   ],
   exports: [
     AuthModalComponent,
